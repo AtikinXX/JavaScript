@@ -1,6 +1,6 @@
 'use strict';
 
-var money = 1,
+let money = 1,
 income = 2,
 addExpenses = 3,
 deposit = 4,
