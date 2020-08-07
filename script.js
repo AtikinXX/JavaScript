@@ -1,18 +1,12 @@
 'use strict';
+let num = 266219,
+  str = num + "",
+  arr = str.split(''),
+  sum = arr.reduce(function (acc, item) {
+    return acc * item
+  }, 1),
+  trr = sum ** 3,
+  grr = trr + "";
 
-let money = 50000,
-income = 'фриланс',
-addExpenses = 'интернет, такси, коммуналка',
-deposit = true,
-mission = 300000,
-period = 6,
-budgetDay = 35000/30;
-
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
-console.log(addExpenses.length);
-console.log('Период равен ' + period + ' месяцев');
-console.log('Цель заработать ' + mission + ' долларов');
-console.log(addExpenses.toLowerCase().split(', '));
-console.log(budgetDay);
+alert(grr.slice(0, 2));
+console.log(sum);
