@@ -1,14 +1,18 @@
 'use strict';
 
-let money = 1,
-income = 2,
-addExpenses = 3,
-deposit = 4,
-mission = 5,
-period = 6;
+let money = 50000,
+income = 'фриланс',
+addExpenses = 'интернет, такси, коммуналка',
+deposit = true,
+mission = 300000,
+period = 6,
+budgetDay = 35000/30;
 
-alert('JavaScript?');
-
-console.log('JavaScript?');
-
-
+console.log(typeof money);
+console.log(typeof income);
+console.log(typeof deposit);
+console.log(addExpenses.length);
+console.log('Период равен ' + period + ' месяцев');
+console.log('Цель заработать ' + mission + ' долларов');
+console.log(addExpenses.toLowerCase().split(', '));
+console.log(budgetDay);
