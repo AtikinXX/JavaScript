@@ -1,36 +1,34 @@
 'use strict';
 
-let money = +prompt('Ваш месячный доход?'),
-income = 'фриланс',
-addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
-deposit = confirm('Есть ли у вас депозит в банке?'),
-expenses1 = prompt('Введите обязательную статью расходов?'),
-amount1 = +prompt('Во сколько это обойдется?'),
-expenses2 = prompt('Введите обязательную статью расходов?'),
-amount2 = +prompt('Во сколько это обойдется?'),
-budgetMonth = (money - amount1 - amount2),
-mission = 300000,
-period = 6,
-budgetDay = Math.floor(budgetMonth / 30),
-missionDone = Math.ceil(mission / budgetMonth);
+let week = 'ru';
 
-if (budgetDay >= 1200) {
-  console.log('У вас высокий уровень дохода');
-} else if (budgetDay >= 600) {
-  console.log('У вас средкий уровень дохода');
-} else if (budgetDay < 0) {
-  console.log('Что то пошло не так');
+if (week === 'ru') {
+  console.log('пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
+} else if (week === 'en') {
+  console.log('mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn');
 } else {
-  console.log('К сожалению у вас уровень дохода ниже среднего');
+  console.log('что то пошло не так');
 }
 
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
-console.log(addExpenses.length);
-console.log('Период равен ' + period + ' месяцев');
-console.log('Цель заработать ' + mission + ' долларов');
-console.log(addExpenses.toLowerCase().split(', '));
-console.log('budgetDay:', budgetDay);
-console.log('budgetMonth:', budgetMonth);
-console.log('missionDone:', missionDone);
+let n = 'en';
+switch (n) {
+  case 'ru':
+    console.log('пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
+    break;
+  case 'en':
+  console.log('mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn');
+    break;
+    default:
+      console.log('что то пошло не так');
+}
+
+let lang = 'en';
+let obj = {
+  ru: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
+  en: ['mn', 'ts', 'wd', 'th', 'fr', 'st', 'sn'],
+}
+let arr = obj[lang];
+console.log(arr);
+
+let namePerson = 'Артем',
+  result = namePerson === 'Артем' ? console.log('директор') : namePerson === 'Максим' ? console.log('преподаватель') : console.log('студент');
