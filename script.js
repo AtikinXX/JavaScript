@@ -1,12 +1,28 @@
 'use strict';
 
-let money = 50000,
+let money = +prompt('Ваш месячный доход?'),
 income = 'фриланс',
-addExpenses = 'интернет, такси, коммуналка',
-deposit = true,
+addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
+deposit = confirm('Есть ли у вас депозит в банке?'),
+expenses1 = prompt('Введите обязательную статью расходов?'),
+amount1 = +prompt('Во сколько это обойдется?'),
+expenses2 = prompt('Введите обязательную статью расходов?'),
+amount2 = +prompt('Во сколько это обойдется?'),
+budgetMonth = (money - amount1 - amount2),
 mission = 300000,
 period = 6,
-budgetDay = 35000/30;
+budgetDay = Math.floor(budgetMonth / 30),
+missionDone = Math.ceil(mission / budgetMonth);
+
+if (budgetDay >= 1200) {
+  console.log('У вас высокий уровень дохода');
+} else if (budgetDay >= 600) {
+  console.log('У вас средкий уровень дохода');
+} else if (budgetDay < 0) {
+  console.log('Что то пошло не так');
+} else {
+  console.log('К сожалению у вас уровень дохода ниже среднего');
+}
 
 console.log(typeof money);
 console.log(typeof income);
@@ -15,4 +31,6 @@ console.log(addExpenses.length);
 console.log('Период равен ' + period + ' месяцев');
 console.log('Цель заработать ' + mission + ' долларов');
 console.log(addExpenses.toLowerCase().split(', '));
-console.log(budgetDay);
+console.log('budgetDay:', budgetDay);
+console.log('budgetMonth:', budgetMonth);
+console.log('missionDone:', missionDone);
