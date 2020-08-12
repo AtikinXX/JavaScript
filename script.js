@@ -1,14 +1,5 @@
 'use strict';
 
-let isNumber = function (n) {
-  // !isNaN если даннаые будут числом, то мы получим true
-  // другими словами !isNaN = НЕ(!) НЕ ЧИСЛО(isNaN) = ЧИСЛО
-  // parseFloat(n) принимает строку в качестве аргумента и возвращает десятичное число 
-  // isFinite(n); если данные НЕ будут бесконечным(infinity) числом, то получим true
-  return !isNaN(parseFloat(n)) && isFinite(n);
-};
-
-//переменные
 let money,
   income = 'freelance',
   addExpenses,
@@ -27,8 +18,6 @@ let money,
 //задаем вопросы + возвращаем сумму расходов с проверкой на число
 function getExpensesMonth() {
   let sum = 0;
-
-  //цыкл с помощью которого мы задаем вопросы
   for (let i = 0; i < 2; i++) {
       //i раз передаем в переменную expenses данные от пользователя
       expenses[i] = prompt('Введите обязательную статью расходов?', 'Курсы .js')
@@ -43,6 +32,14 @@ function getExpensesMonth() {
 //берем месячный доход и вычитаем результат функции getExpensesMonth() (сумма обязательных расходов)
 function getAccumulatedMonth() {
   return money - expensesAmount;
+};
+
+let isNumber = function (n) {
+  // !isNaN если даннаые будут числом, то мы получим true
+  // другими словами !isNaN = НЕ(!) НЕ ЧИСЛО(isNaN) = ЧИСЛО
+  // parseFloat(n) принимает строку в качестве аргумента и возвращает десятичное число 
+  // isFinite(n); если данные НЕ будут бесконечным(infinity) числом, то получим true
+  return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
 //проверка за сколько месяцев будет достигнута миссия
