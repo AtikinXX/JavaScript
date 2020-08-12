@@ -8,29 +8,46 @@ expenses1 = prompt('Введите обязательную статью рас�
 amount1 = +prompt('Во сколько это обойдется?'),
 expenses2 = prompt('Введите обязательную статью расходов?'),
 amount2 = +prompt('Во сколько это обойдется?'),
-budgetMonth = (money - amount1 - amount2),
 mission = 300000,
 period = 6,
-budgetDay = Math.floor(budgetMonth / 30),
-missionDone = Math.ceil(mission / budgetMonth);
+missionDone,
+budgetDay,
+accumulatedMonth;
 
-if (budgetDay >= 1200) {
-  console.log('У вас высокий уровень дохода');
-} else if (budgetDay >= 600) {
-  console.log('У вас средкий уровень дохода');
-} else if (budgetDay < 0) {
-  console.log('Что то пошло не так');
-} else {
-  console.log('К сожалению у вас уровень дохода ниже среднего');
+function getExpensesMonth(a, b) {
+  return a + b;
 }
 
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
-console.log(addExpenses.length);
-console.log('Период равен ' + period + ' месяцев');
-console.log('Цель заработать ' + mission + ' долларов');
-console.log(addExpenses.toLowerCase().split(', '));
-console.log('budgetDay:', budgetDay);
-console.log('budgetMonth:', budgetMonth);
-console.log('missionDone:', missionDone);
+function getAccumulatedMonth(x, a, b) {
+  return x - getExpensesMonth(a, b)
+}
+
+function getTargetMonth(mission, accumulatedMonth) {
+  return mission / accumulatedMonth;
+}
+
+let showTypeOf = function (data) {
+  console.log(data, typeof (data));
+}
+
+let getStatusIncome = function () {
+  if (budgetDay >= 1200) {
+    return 'У вас высокий уровень дохода';
+  } else if (budgetDay >= 600) {
+    return 'У вас средний уровень дохода';
+  } else if (budgetDay <= 0) {
+    return 'Что то пошло не так';
+  } else {
+    return 'К сожалению у вас уровень дохода ниже среднего';
+  }
+};
+
+accumulatedMonth = +getAccumulatedMonth(money, amount1, amount2);
+budgetDay = Math.floor(accumulatedMonth / 30);
+missionDone = Math.ceil(mission / accumulatedMonth);
+
+showTypeOf(addExpenses.toLowerCase().split(', '));
+showTypeOf(getTargetMonth(mission, accumulatedMonth));
+showTypeOf(budgetDay);
+console.log(getExpensesMonth(amount1, amount2));
+console.log(getStatusIncome());
